@@ -161,45 +161,58 @@
       </div>
     </div>
 
-    <!-- Quick Real-World Scenario Triggers (Social Impact & Disaster Relief) -->
+    <!-- Live Consumer Headphone Demo Panel -->
     <div class="featured-scenarios-panel" id="scenario-triggers">
       <div class="scenario-panel-header">
         <div>
-          <span class="badge-impact-tag">🌍 SOCIAL IMPACT & REAL-WORLD SCENARIO</span>
-          <h3 class="scenario-title">Humanitarian Disaster Relief Procurement Agent</h3>
-          <p class="scenario-subtitle">Live simulation: AI agent operates with ₹100,000 authority. Sentinel auto-approves safe essentials, enforces human supervisor quarantine for high-risk medical supplies, and hard-blocks unauthorized consumer electronics.</p>
+          <span class="badge-impact-tag">🎧 LIVE CONSUMER ELECTRONICS DEMO</span>
+          <h3 class="scenario-title">Aarohi Autonomous Shopping Agent</h3>
+          <p class="scenario-subtitle">The AI agent compares the available headphone catalog and initiates checkout under Sentinel's 3-tier authority gating.</p>
         </div>
       </div>
 
+      <!-- User Voice / Intent Prompt Showcase -->
+      <div class="user-intent-box">
+        <div class="intent-avatar">👤</div>
+        <div class="intent-body">
+          <span class="intent-kicker">USER REQUEST</span>
+          <div class="intent-text">"I want to buy the best headphones under ₹1,000."</div>
+        </div>
+        <div class="intent-ai-badge" id="aiModeIndicator">
+          <span class="dot dot-emerald"></span> 🤖 REAL AI MODE (Gemini 2.5 Flash)
+        </div>
+      </div>
+
+      <!-- Three One-Click Scenario Buttons -->
       <div class="scenario-buttons-row">
-        <button class="scenario-card-btn btn-water" onclick="runDemoScenario('relief_safe_water')">
+        <button class="scenario-card-btn btn-water" onclick="runDemoScenario('headphone_under_1000')">
           <div class="btn-scenario-top">
-            <span class="scenario-icon">💧</span>
+            <span class="scenario-icon">🎧</span>
             <span class="scenario-badge auto">🟢 AUTO-APPROVED</span>
           </div>
-          <div class="scenario-btn-name">Emergency Water Supply</div>
-          <div class="scenario-btn-meta">₹8,000 • Allowed Category 'water' • Low Authority Tier</div>
-          <div class="scenario-btn-action">Run Autonomous Execution →</div>
+          <div class="scenario-btn-name">SoundWave Lite (₹899)</div>
+          <div class="scenario-btn-meta">Wireless • 30h battery • BT 5.3 • Low Authority Tier (&lt; ₹1,000)</div>
+          <div class="scenario-btn-action">Run Scenario 1 (Auto) →</div>
         </button>
 
-        <button class="scenario-card-btn btn-meds" onclick="runDemoScenario('relief_human_meds')">
+        <button class="scenario-card-btn btn-meds" onclick="runDemoScenario('headphone_under_1500')">
           <div class="btn-scenario-top">
-            <span class="scenario-icon">🏥</span>
+            <span class="scenario-icon">🎧</span>
             <span class="scenario-badge review">🟡 SUPERVISOR REVIEW</span>
           </div>
-          <div class="scenario-btn-name">Medical Trauma Kits (50x)</div>
-          <div class="scenario-btn-meta">₹45,000 • Quarantined for Human Sign-off</div>
-          <div class="scenario-btn-action">Queue for Supervisor →</div>
+          <div class="scenario-btn-name">AudioMax Pro (₹1,299)</div>
+          <div class="scenario-btn-meta">Noise reduction • 40h battery • Quarantined in Supervisor Queue</div>
+          <div class="scenario-btn-action">Run Scenario 2 (Review) →</div>
         </button>
 
-        <button class="scenario-card-btn btn-phone" onclick="runDemoScenario('relief_blocked_phone')">
+        <button class="scenario-card-btn btn-phone" onclick="runDemoScenario('headphone_premium_blocked')">
           <div class="btn-scenario-top">
-            <span class="scenario-icon">📱</span>
+            <span class="scenario-icon">🎧</span>
             <span class="scenario-badge block">🔴 HARD BLOCKED (403)</span>
           </div>
-          <div class="scenario-btn-name">Luxury Smartphone Bundle</div>
-          <div class="scenario-btn-meta">₹20,000 • Blocked Category 'electronics' (Zero Razorpay Calls)</div>
-          <div class="scenario-btn-action">Test Policy Hard Block →</div>
+          <div class="scenario-btn-name">Studio Elite ANC (₹2,499)</div>
+          <div class="scenario-btn-meta">Audiophile ANC • Exceeds ₹1,500 maximum limit (Zero Razorpay Calls)</div>
+          <div class="scenario-btn-action">Run Scenario 3 (Block) →</div>
         </button>
       </div>
     </div>
@@ -387,9 +400,9 @@
         <div class="sim-selector-group">
           <label class="sim-label">Target Agent Identity:</label>
           <select id="simAgentSelect" class="sim-select" onchange="updateSimProductOptions()">
-            <option value="relief_agent_001" selected>🌍 Relief Supply Agent (Emergency Authority ₹100k)</option>
+            <option value="agent_demo_001" selected>🤖 Aarohi Shopping Agent (Headphones & Audio Authority ₹1,500)</option>
+            <option value="relief_agent_001">🌍 Relief Supply Agent (Emergency Authority ₹100k)</option>
             <option value="procurement_agent_001">🏢 Operations Procurement Agent (Authority ₹50k)</option>
-            <option value="agent_demo_001">🤖 Aarohi Shopping Agent (Authority ₹1,500)</option>
           </select>
         </div>
         <div class="sim-selector-group">

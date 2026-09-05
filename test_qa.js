@@ -72,13 +72,13 @@ async function runQATests() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         agentId: 'agent_demo_001',
-        productId: 'p4', // Wool Shawl server price ₹2499
+        productId: 'p3', // Studio Elite server price ₹2499
         price: 50, // Fake price injected in request
         idempotencyKey: 'qa-fake-price-1',
       }),
     });
     const fakePriceData = await fakePriceRes.json();
-    record(8, 'AI output cannot override server price or policy', fakePriceRes.status === 403 && fakePriceData.decision === 'BLOCKED', `Product p4 evaluated as server price ₹2499 > ₹1500 limit (ignored body price ₹50)`);
+    record(8, 'AI output cannot override server price or policy', fakePriceRes.status === 403 && fakePriceData.decision === 'BLOCKED', `Product p3 evaluated as server price ₹2499 > ₹1500 limit (ignored body price ₹50)`);
 
     // 9. Approved action creates real Razorpay TEST MODE order
     const autoOrderRes = await fetch(`${BASE_URL}/api/agent/checkout`, {

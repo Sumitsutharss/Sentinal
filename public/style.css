@@ -539,6 +539,63 @@ body {
   margin-bottom: 18px;
 }
 
+.user-intent-box {
+  background: #f1f5f9;
+  border: 1.5px solid var(--surface-border);
+  border-radius: 14px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.intent-avatar {
+  font-size: 26px;
+  background: #ffffff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.intent-body {
+  flex-grow: 1;
+}
+
+.intent-kicker {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  display: block;
+}
+
+.intent-text {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.intent-ai-badge {
+  font-size: 11.5px;
+  font-weight: 700;
+  background: #ffffff;
+  border: 1px solid var(--surface-border);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  color: #1e293b;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: var(--shadow-sm);
+}
+
 .scenario-buttons-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

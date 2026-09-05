@@ -211,14 +211,14 @@ node test_qa.js
 
 ---
 
-## 🎭 Live Demo Scenarios
+## 🎭 Live Demo Scenarios (Consumer Headphone Story)
 
-| Scenario | Trigger | What Happens |
-| :--- | :--- | :--- |
-| **🟢 1. Auto-Approved Action** | Emergency Water (₹8,000) | Price < ₹10k auto-approval limit. Sentinel issues 60s authorization token and triggers a Razorpay Test Mode order (`order_xxx`). |
-| **🟡 2. Human Supervisor Review** | Medical Trauma Kits (₹45,000) | Price is between ₹10k and ₹100k. Transaction enters supervisor quarantine queue. Zero tokens or orders generated until human clicks **✓ Approve**. |
-| **🔴 3. Category Restriction Block** | Luxury Smartphone (₹20,000) | Even though ₹20k is within ₹100k budget, category `electronics` is restricted. Returns `HTTP 403 Forbidden`. Zero payment calls. |
-| **🔁 4. Idempotency Protection** | Replay identical request | Request with matching `Idempotency-Key` returns cached order without duplicating financial execution. |
+| Scenario | User Prompt / Trigger | What Happens | Sentinel Output |
+| :--- | :--- | :--- | :--- |
+| **🟢 1. Low Authority Auto-Approval** | *"I want to buy the best headphones under ₹1,000."* | Agent recommends **SoundWave Lite (₹899)**. Price is below ₹1,000 auto-approval ceiling. Sentinel issues a 60s authorization token and executes Razorpay Test Mode order (`order_xxx`). | `🟢 APPROVED` (Token Issued, Razorpay Order Created) |
+| **🟡 2. Human Supervisor Review** | *"I want noise reduction headphones under ₹1,500."* | Agent recommends **AudioMax Pro (₹1,299)**. Price falls in ₹1,000–₹1,500 medium tier. Quarantined in supervisor queue. Zero payment calls until human clicks **✓ Approve**. | `🟡 PENDING_APPROVAL` (Quarantine -> Approved -> Order Created) |
+| **🔴 3. Hard Policy Spending Block** | *"Buy Studio Elite ANC headphones."* | Agent attempts **Studio Elite (₹2,499)**. Exceeds ₹1,500 maximum spending authority. Sentinel hard-blocks with `HTTP 403 Forbidden`. Zero payment calls. | `🔴 BLOCKED` (HTTP 403, Zero Tokens, Zero Razorpay Calls) |
+| **🔁 4. Idempotency Protection** | Replay identical request | Request with matching `Idempotency-Key` returns cached order without duplicating financial execution. | `✓ IDEMPOTENT_REPLAY` (Cached Response) |
 
 ---
 

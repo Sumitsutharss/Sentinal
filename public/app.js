@@ -18,12 +18,19 @@ async function checkHealth() {
 
       // AI Provider Status
       const aiPill = document.getElementById('statusAiProvider');
+      const aiIndicator = document.getElementById('aiModeIndicator');
       if (data.integrations?.aiProvider?.status === 'CONNECTED') {
         aiPill.className = 'pill online';
         aiPill.innerHTML = `<span class="dot dot-emerald"></span> 🤖 Gemini: Connected`;
+        if (aiIndicator) {
+          aiIndicator.innerHTML = `<span class="dot dot-emerald"></span> 🤖 REAL AI MODE (${data.integrations.aiProvider.model})`;
+        }
       } else {
         aiPill.className = 'pill safe-mode';
         aiPill.innerHTML = `<span class="dot dot-amber"></span> 🤖 Gemini: Fallback`;
+        if (aiIndicator) {
+          aiIndicator.innerHTML = `<span class="dot dot-amber"></span> ⚙️ DETERMINISTIC FALLBACK MODE`;
+        }
       }
 
       // Payment Provider Status

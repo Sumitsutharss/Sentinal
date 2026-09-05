@@ -24,42 +24,42 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Catalogs per Domain / Agent
 // -------------------------------------------------------------
 const catalogs = {
-  // 1. Consumer Shopping Catalog
+  // 1. Consumer Headphone & Audio Shopping Catalog
   shopping: [
     {
       id: 'p1',
-      name: 'Handwoven Cotton Saree',
-      price: 1899,
-      description: 'Block-printed, Jaipur weave',
-      category: 'apparel',
+      name: 'SoundWave Lite',
+      price: 899,
+      description: 'Wireless on-ear headphones, 30-hour battery, Bluetooth 5.3',
+      category: 'headphones',
     },
     {
       id: 'p2',
-      name: 'Khadi Kurta Set',
+      name: 'AudioMax Pro',
       price: 1299,
-      description: 'Breathable khadi cotton',
-      category: 'apparel',
+      description: 'Over-ear headphones, noise reduction, 40-hour battery, dual drivers',
+      category: 'headphones',
     },
     {
       id: 'p3',
-      name: 'Silk Dupatta',
-      price: 899,
-      description: 'Hand-dyed Bandhani pattern',
-      category: 'accessories',
+      name: 'Studio Elite',
+      price: 2499,
+      description: 'Audiophile grade studio monitor, Active Noise Cancellation (ANC)',
+      category: 'headphones',
     },
     {
       id: 'p4',
-      name: 'Wool Shawl',
-      price: 2499,
-      description: 'Kullu wool, hand-loomed',
-      category: 'apparel',
+      name: 'BassBeat Plus',
+      price: 949,
+      description: 'Extra bass dynamic drivers, ultra lightweight ergonomic headband',
+      category: 'headphones',
     },
     {
       id: 'p5',
-      name: 'Cotton Bedsheet Set',
-      price: 1099,
-      description: 'King size, 2 pillow covers',
-      category: 'home',
+      name: 'Gold-Plated Luxury Beats',
+      price: 45000,
+      description: '24k gold collector edition audiophile headset with diamond inlays',
+      category: 'luxury',
     },
   ],
 
@@ -164,7 +164,7 @@ const agentsRegistry = {
     policy: {
       maxTransactionAmount: 1500,
       maxTransactions: 10,
-      allowedCategories: ['apparel', 'accessories', 'home'],
+      allowedCategories: ['headphones', 'audio', 'accessories', 'electronics', 'apparel', 'home'],
       blockedCategories: ['luxury', 'restricted'],
       autoApproveBelow: 1000,
       requireHumanApprovalAbove: 1000,
@@ -1324,20 +1324,52 @@ app.post('/api/demo/run', async (req, res) => {
       note: 'Attempting unauthorized executive luxury watch purchase.',
     },
 
-    // Shopping Agent Scenarios
+    // Headphone Consumer Shopping Scenarios
+    headphone_under_1000: {
+      agentId: 'agent_demo_001',
+      productId: 'p1', // SoundWave Lite ₹899 (< ₹1,000 Auto-Approved)
+      note: 'User Request: "I want to buy the best headphones under ₹1,000." Matched SoundWave Lite (₹899).',
+    },
+    headphone_under_1500: {
+      agentId: 'agent_demo_001',
+      productId: 'p2', // AudioMax Pro ₹1,299 (Medium Tier ₹1,000–₹1,500)
+      note: 'User Request: "I want noise reduction headphones under ₹1,500." Matched AudioMax Pro (₹1,299).',
+    },
+    headphone_premium_blocked: {
+      agentId: 'agent_demo_001',
+      productId: 'p3', // Studio Elite ₹2,499 (> ₹1,500 Hard Blocked)
+      note: 'User Request: "Buy Studio Elite ANC headphones." Attempting ₹2,499 purchase exceeding ₹1,500 spending ceiling.',
+    },
+
+    // Aliases
+    headphone_safe: {
+      agentId: 'agent_demo_001',
+      productId: 'p1',
+      note: 'User Request: "I want to buy the best headphones under ₹1,000." Matched SoundWave Lite (₹899).',
+    },
+    headphone_human: {
+      agentId: 'agent_demo_001',
+      productId: 'p2',
+      note: 'User Request: "I want noise reduction headphones under ₹1,500." Matched AudioMax Pro (₹1,299).',
+    },
+    headphone_blocked: {
+      agentId: 'agent_demo_001',
+      productId: 'p3',
+      note: 'Attempting ₹2,499 purchase exceeding ₹1,500 spending ceiling.',
+    },
     shop_auto_dupatta: {
       agentId: 'agent_demo_001',
-      productId: 'p3', // Silk Dupatta ₹899 (< ₹1,000 Auto)
-      note: 'Autonomous consumer match for festive accessories gift.',
+      productId: 'p1',
+      note: 'Autonomous consumer match for headphones under budget.',
     },
     shop_human_kurta: {
       agentId: 'agent_demo_001',
-      productId: 'p2', // Khadi Kurta Set ₹1,299 (Medium Tier)
-      note: 'High-utility ethnic wear selection.',
+      productId: 'p2',
+      note: 'High-utility audio gear selection.',
     },
     shop_block_saree: {
       agentId: 'agent_demo_001',
-      productId: 'p1', // Handwoven Cotton Saree ₹1,899 (> ₹1,500 High Tier)
+      productId: 'p3',
       note: 'Attempting purchase beyond consumer delegated limit.',
     },
   };
