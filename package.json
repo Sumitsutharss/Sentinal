@@ -1,0 +1,22 @@
+{
+  "name": "sentinel-ai-agent-trust-layer",
+  "version": "4.1.0",
+  "description": "Policy-governed authorization infrastructure for autonomous AI agents. The Trust & Authorization Layer for AI Agents.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "buyer": "node buyer.js",
+    "test": "node test_qa.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.36.3",
+    "@google/genai": "^0.1.2",
+    "@google/generative-ai": "^0.24.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "node-fetch": "^3.3.2",
+    "razorpay": "^2.9.5"
+  }
+}

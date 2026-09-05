@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sentinel — The Trust & Authorization Layer for AI Agents</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <!-- Floating Navigation Bar (Matches Reference UI) -->
+  <header class="navbar-wrapper">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <a href="#" class="logo-link">
+          <span class="logo-icon">🛡️</span>
+          <span class="logo-text">Sentinel</span>
+        </a>
+      </div>
+
+      <div class="nav-menu-pill">
+        <a href="#hero" class="nav-item active">Platform</a>
+        <a href="#control-center" class="nav-item">Simulator</a>
+        <a href="#governance-section" class="nav-item">Governance</a>
+        <a href="#telemetry-section" class="nav-item">Live Telemetry</a>
+        <a href="#api-reference" class="nav-item">Solutions</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="nav-btn-ghost" onclick="document.getElementById('control-center').scrollIntoView({behavior: 'smooth'})">Log in</button>
+        <a href="#control-center" class="nav-btn-primary">Launch Console</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section with Glowing 3D Globe & Floating Partners Bar -->
+  <section class="hero-section" id="hero">
+    <div class="hero-atmosphere">
+      <!-- Real 3D Spinning Globe Video Background -->
+      <video class="hero-video-globe" autoplay muted loop playsinline src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260602_132418_e0e79d08-5d1f-42d9-b8ae-8dd69217aacf.mp4" style="filter: saturate(0);"></video>
+      <div class="hero-video-overlay"></div>
+    </div>
+
+    <div class="hero-inner">
+      <!-- Release Badge Pill -->
+      <div class="hero-badge-pill">
+        <span class="sparkle-icon">✨</span>
+        <span class="badge-text">Introducing Sentinel Zero-Hop Engine 4.1</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="hero-headline">
+        Discover a faster path to<br>
+        <span class="headline-dark">agent authorization</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="hero-subtext">
+        Tap the Sentinel platform to craft payment and agent authorization experiences that are fast, trusted, and effortless.
+      </p>
+
+      <!-- Primary & Secondary CTA Buttons -->
+      <div class="hero-cta-group">
+        <a href="#control-center" class="hero-btn-dark">
+          Start building <span class="arrow">→</span>
+        </a>
+        <a href="#scenario-triggers" class="hero-btn-outline">
+          Explore Trust Console
+        </a>
+      </div>
+
+      <!-- Floating Integrations & Partners Pill Bar (Matches Reference Image) -->
+      <div class="partners-pill-container">
+        <div class="partners-pill">
+          <!-- Shopify -->
+          <div class="partner-item" title="Shopify Integration">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/shopify.svg" alt="Shopify" class="partner-svg" />
+          </div>
+
+          <!-- Stripe -->
+          <div class="partner-item" title="Stripe Payments">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/stripe.svg" alt="Stripe" class="partner-svg" />
+          </div>
+
+          <!-- Razorpay (Test Mode Active) -->
+          <div class="partner-item" title="Razorpay Test Mode">
+            <div class="partner-logo-box">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/razorpay.svg" alt="Razorpay" class="partner-svg razorpay-icon" />
+              <span class="badge-test-mode">TEST MODE</span>
+            </div>
+          </div>
+
+          <!-- Google Gemini AI -->
+          <div class="partner-item" title="Google Gemini AI Provider">
+            <div class="partner-logo-box">
+              <span class="gemini-star">✦</span>
+              <span class="gemini-text">Gemini 2.5</span>
+            </div>
+          </div>
+
+          <!-- Visa -->
+          <div class="partner-item" title="Visa Global Network">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/visa.svg" alt="Visa" class="partner-svg partner-svg-lg" />
+          </div>
+
+          <!-- Apple Pay -->
+          <div class="partner-item" title="Apple Pay">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/applepay.svg" alt="Apple Pay" class="partner-svg partner-svg-lg" />
+          </div>
+
+          <!-- Mastercard -->
+          <div class="partner-item" title="Mastercard Network">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/mastercard.svg" alt="Mastercard" class="partner-svg partner-svg-lg" />
+          </div>
+
+          <!-- PayPal -->
+          <div class="partner-item" title="PayPal Integration">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/paypal.svg" alt="PayPal" class="partner-svg" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- SENTINEL CONTROL CENTER — LIVE PLATFORM & POLICY ENGINE        -->
+  <!-- ============================================================== -->
+  <main class="console-wrapper" id="control-center">
+    
+    <!-- Top System Gateway & Integrations Status Bar -->
+    <div class="system-gateway-bar">
+      <div class="gateway-left">
+        <div class="gateway-title-group">
+          <span class="section-kicker">INFRASTRUCTURE LAYER</span>
+          <h2 class="console-main-heading">Sentinel Control Center</h2>
+        </div>
+        <div class="core-statement-pill">
+          💡 AI CAN DECIDE WHAT IT WANTS TO DO. SENTINEL DECIDES WHAT IT IS TRUSTED TO DO.
+        </div>
+      </div>
+
+      <div class="gateway-right">
+        <div class="system-status-pills">
+          <div class="pill online" id="statusPolicyEngine">
+            <span class="dot dot-emerald"></span> Policy Engine: Online
+          </div>
+          <div class="pill online" id="statusAiProvider">
+            <span class="dot dot-emerald"></span> 🤖 Gemini: Connected
+          </div>
+          <div class="pill online" id="statusPaymentAdapter">
+            <span class="dot dot-emerald"></span> 💳 Razorpay: Test Mode
+          </div>
+          <div class="pill online" id="statusActiveAgents">
+            <span class="dot dot-emerald"></span> Agents: 3 Active
+          </div>
+        </div>
+        <button class="btn btn-secondary btn-sm" id="btnResetState" title="Reset audit logs & queues">Reset State</button>
+      </div>
+    </div>
+
+    <!-- Quick Real-World Scenario Triggers (Social Impact & Disaster Relief) -->
+    <div class="featured-scenarios-panel" id="scenario-triggers">
+      <div class="scenario-panel-header">
+        <div>
+          <span class="badge-impact-tag">🌍 SOCIAL IMPACT & REAL-WORLD SCENARIO</span>
+          <h3 class="scenario-title">Humanitarian Disaster Relief Procurement Agent</h3>
+          <p class="scenario-subtitle">Live simulation: AI agent operates with ₹100,000 authority. Sentinel auto-approves safe essentials, enforces human supervisor quarantine for high-risk medical supplies, and hard-blocks unauthorized consumer electronics.</p>
+        </div>
+      </div>
+
+      <div class="scenario-buttons-row">
+        <button class="scenario-card-btn btn-water" onclick="runDemoScenario('relief_safe_water')">
+          <div class="btn-scenario-top">
+            <span class="scenario-icon">💧</span>
+            <span class="scenario-badge auto">🟢 AUTO-APPROVED</span>
+          </div>
+          <div class="scenario-btn-name">Emergency Water Supply</div>
+          <div class="scenario-btn-meta">₹8,000 • Allowed Category 'water' • Low Authority Tier</div>
+          <div class="scenario-btn-action">Run Autonomous Execution →</div>
+        </button>
+
+        <button class="scenario-card-btn btn-meds" onclick="runDemoScenario('relief_human_meds')">
+          <div class="btn-scenario-top">
+            <span class="scenario-icon">🏥</span>
+            <span class="scenario-badge review">🟡 SUPERVISOR REVIEW</span>
+          </div>
+          <div class="scenario-btn-name">Medical Trauma Kits (50x)</div>
+          <div class="scenario-btn-meta">₹45,000 • Quarantined for Human Sign-off</div>
+          <div class="scenario-btn-action">Queue for Supervisor →</div>
+        </button>
+
+        <button class="scenario-card-btn btn-phone" onclick="runDemoScenario('relief_blocked_phone')">
+          <div class="btn-scenario-top">
+            <span class="scenario-icon">📱</span>
+            <span class="scenario-badge block">🔴 HARD BLOCKED (403)</span>
+          </div>
+          <div class="scenario-btn-name">Luxury Smartphone Bundle</div>
+          <div class="scenario-btn-meta">₹20,000 • Blocked Category 'electronics' (Zero Razorpay Calls)</div>
+          <div class="scenario-btn-action">Test Policy Hard Block →</div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Multi-Agent Identity Registry Section -->
+    <section class="console-card" id="governance-section">
+      <div class="card-header-flex">
+        <div>
+          <span class="section-kicker">SENTINEL AGENT REGISTRY</span>
+          <h2 class="card-heading">Active AI Agent Identities & Scopes</h2>
+          <p class="card-caption">Sentinel verifies cryptographic agent identity and capability scopes prior to policy evaluation (<code>GET /api/agents</code>).</p>
+        </div>
+        <span class="status-pill active">3 / 3 AGENTS ACTIVE</span>
+      </div>
+
+      <div class="agents-grid">
+        <!-- Agent 1: Aarohi Shopping Agent -->
+        <div class="agent-profile-card active" id="card_agent_demo_001" onclick="selectAgent('agent_demo_001')">
+          <div class="agent-card-header">
+            <div class="agent-avatar">🤖</div>
+            <div class="agent-meta">
+              <div class="agent-name">Aarohi Shopping Agent</div>
+              <div class="agent-subtag">Consumer E-Commerce</div>
+            </div>
+            <span class="online-dot"></span>
+          </div>
+          <div class="agent-metric-box">
+            <span class="metric-label">Max Authority:</span>
+            <span class="metric-value">₹1,500</span>
+          </div>
+          <div class="agent-scopes-row">
+            <span class="scope-pill">catalog.read</span>
+            <span class="scope-pill">checkout.request</span>
+          </div>
+          <div class="agent-cats-desc">
+            Allowed: <strong>apparel, accessories, home</strong>
+          </div>
+          <button class="btn btn-sm btn-agent-select">Inspect Policy & Catalog</button>
+        </div>
+
+        <!-- Agent 2: Operations Procurement Agent -->
+        <div class="agent-profile-card" id="card_procurement_agent_001" onclick="selectAgent('procurement_agent_001')">
+          <div class="agent-card-header">
+            <div class="agent-avatar">🏢</div>
+            <div class="agent-meta">
+              <div class="agent-name">Operations Procurement Agent</div>
+              <div class="agent-subtag">Corporate Supplies</div>
+            </div>
+            <span class="online-dot"></span>
+          </div>
+          <div class="agent-metric-box">
+            <span class="metric-label">Max Authority:</span>
+            <span class="metric-value">₹50,000</span>
+          </div>
+          <div class="agent-scopes-row">
+            <span class="scope-pill">catalog.read</span>
+            <span class="scope-pill">procurement.request</span>
+            <span class="scope-pill">checkout.request</span>
+          </div>
+          <div class="agent-cats-desc">
+            Allowed: <strong>office, technology, operations</strong>
+          </div>
+          <button class="btn btn-sm btn-agent-select">Inspect Policy & Catalog</button>
+        </div>
+
+        <!-- Agent 3: Relief Supply Agent -->
+        <div class="agent-profile-card" id="card_relief_agent_001" onclick="selectAgent('relief_agent_001')">
+          <div class="agent-card-header">
+            <div class="agent-avatar">🌍</div>
+            <div class="agent-meta">
+              <div class="agent-name">Relief Supply Agent</div>
+              <div class="agent-subtag social">Disaster Relief</div>
+            </div>
+            <span class="online-dot"></span>
+          </div>
+          <div class="agent-metric-box">
+            <span class="metric-label">Max Authority:</span>
+            <span class="metric-value">₹100,000</span>
+          </div>
+          <div class="agent-scopes-row">
+            <span class="scope-pill">catalog.read</span>
+            <span class="scope-pill">relief.procurement</span>
+            <span class="scope-pill">checkout.request</span>
+          </div>
+          <div class="agent-cats-desc">
+            Allowed: <strong>water, food, medicine, shelter</strong>
+          </div>
+          <button class="btn btn-sm btn-agent-select">Inspect Policy & Catalog</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Two-Column Grid: Policy Engine & Authority Boundaries + Domain Catalog -->
+    <div class="two-column-grid">
+      
+      <!-- Deterministic Policy Engine Card -->
+      <section class="console-card">
+        <div class="card-header-flex">
+          <div>
+            <span class="section-kicker">SENTINEL POLICY ENGINE</span>
+            <h2 class="card-heading" id="policyVisualizerTitle">Policy for Aarohi Shopping Agent</h2>
+          </div>
+          <span class="policy-badge active">DETERMINISTIC RULES</span>
+        </div>
+        <p class="card-caption">Three-tier authority gating evaluated server-side before issuing execution tokens & Razorpay orders</p>
+
+        <div class="policy-tiers-grid">
+          <div class="tier-card tier-auto">
+            <div class="tier-header">
+              <span class="tier-dot green"></span>
+              <span class="tier-title">LOW AUTHORITY</span>
+            </div>
+            <div class="tier-val" id="tierAutoVal">&lt; ₹1,000</div>
+            <div class="tier-desc">Auto-approved • 60s Token • Razorpay Order</div>
+          </div>
+
+          <div class="tier-card tier-human">
+            <div class="tier-header">
+              <span class="tier-dot amber"></span>
+              <span class="tier-title">MEDIUM AUTHORITY</span>
+            </div>
+            <div class="tier-val" id="tierHumanVal">₹1,000 – ₹1,500</div>
+            <div class="tier-desc">Human supervisor approval required</div>
+          </div>
+
+          <div class="tier-card tier-block">
+            <div class="tier-header">
+              <span class="tier-dot red"></span>
+              <span class="tier-title">HIGH / RESTRICTED</span>
+            </div>
+            <div class="tier-val" id="tierBlockVal">&gt; ₹1,500</div>
+            <div class="tier-desc">Hard policy block (HTTP 403)</div>
+          </div>
+        </div>
+
+        <div class="policy-meta-details">
+          <div class="policy-detail-row">
+            <span class="detail-label">Allowed Categories:</span>
+            <span class="detail-val text-success" id="policyAllowedCats">apparel, accessories, home</span>
+          </div>
+          <div class="policy-detail-row">
+            <span class="detail-label">Blocked Categories:</span>
+            <span class="detail-val text-danger" id="policyBlockedCats">luxury, restricted</span>
+          </div>
+          <div class="policy-detail-row">
+            <span class="detail-label">Payment Adapter:</span>
+            <span class="detail-val text-success">Razorpay TEST MODE (Executes only with signed authorization)</span>
+          </div>
+          <div class="policy-detail-row">
+            <span class="detail-label">Token TTL:</span>
+            <span class="detail-val">60 seconds (Short-Lived Action Authorization)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Domain Catalog Card -->
+      <section class="console-card">
+        <div class="card-header-flex">
+          <div>
+            <span class="section-kicker">SERVER-AUTHORITATIVE CATALOG</span>
+            <h2 class="card-heading" id="catalogTitle">Domain Catalog</h2>
+          </div>
+          <span class="merchant-badge" id="catalogDomainTag">Shopping</span>
+        </div>
+        <p class="card-caption">Prices & categories are strictly server-authoritative (<code>GET /api/agent/catalog</code>)</p>
+        
+        <div class="catalog-grid" id="catalogList">
+          <div class="empty-state">Loading catalog...</div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Interactive Policy Simulation & Explainability Engine -->
+    <section class="console-card simulator-section">
+      <div class="card-header-flex">
+        <div>
+          <span class="section-kicker">POLICY EXPLAINABILITY & SIMULATION</span>
+          <h2 class="card-heading">Sentinel Policy Simulator</h2>
+          <p class="card-caption">Simulate an AI agent action before execution. Sentinel evaluates identity, capability scopes, category permissions, spending authority, and human approval requirements.</p>
+        </div>
+        <span class="endpoint-badge">POST /api/policy/simulate</span>
+      </div>
+
+      <div class="simulator-controls-bar">
+        <div class="sim-selector-group">
+          <label class="sim-label">Target Agent Identity:</label>
+          <select id="simAgentSelect" class="sim-select" onchange="updateSimProductOptions()">
+            <option value="relief_agent_001" selected>🌍 Relief Supply Agent (Emergency Authority ₹100k)</option>
+            <option value="procurement_agent_001">🏢 Operations Procurement Agent (Authority ₹50k)</option>
+            <option value="agent_demo_001">🤖 Aarohi Shopping Agent (Authority ₹1,500)</option>
+          </select>
+        </div>
+        <div class="sim-selector-group">
+          <label class="sim-label">Target Catalog Item:</label>
+          <select id="simProductSelect" class="sim-select">
+            <!-- Populated dynamically based on agent -->
+          </select>
+        </div>
+        <button class="btn btn-primary btn-sim-trigger" id="btnRunSimulation">Inspect Policy Decision</button>
+      </div>
+
+      <div class="simulation-result-box" id="simResultBox">
+        <div class="sim-placeholder">Select an agent and target product above, then click "Inspect Policy Decision".</div>
+      </div>
+    </section>
+
+    <!-- Supervisor Human-in-the-Loop Approvals Queue -->
+    <section class="console-card approvals-section">
+      <div class="card-header-flex">
+        <div>
+          <span class="section-kicker">SUPERVISOR CONTROL</span>
+          <h2 class="card-heading">Sentinel Human-in-the-Loop Approvals Queue</h2>
+          <p class="card-caption">Actions exceeding autonomous thresholds are quarantined here. Supervisors review and sign off before execution tokens & Razorpay orders are issued (<code>GET /api/approvals</code>).</p>
+        </div>
+        <div class="badge-pending" id="pendingCounter">0 PENDING</div>
+      </div>
+
+      <div class="approvals-queue" id="approvalsQueue">
+        <div class="empty-state">No pending approvals. Run a medium-tier scenario (e.g. 🏥 Medical Kits ₹45,000) to trigger live supervisor review.</div>
+      </div>
+    </section>
+
+    <!-- Live Event Stream & Immutable Telemetry -->
+    <section class="console-card telemetry-section" id="telemetry-section">
+      <div class="card-header-flex">
+        <div>
+          <span class="section-kicker">SENTINEL EVENT STREAM</span>
+          <h2 class="card-heading">Live Agent Activity & Audit Feed</h2>
+          <p class="card-caption">Real-time backend event stream from all active AI agents (<code>GET /api/activity</code>). Zero fake data.</p>
+        </div>
+        <div class="audit-counter">
+          <span id="auditCount">0</span> Events Recorded
+        </div>
+      </div>
+
+      <div class="audit-stream" id="auditStream">
+        <div class="empty-state">No activity logged yet. Trigger a scenario above.</div>
+      </div>
+    </section>
+
+    <!-- Why Sentinel Matters / Core Social Impact Narrative -->
+    <section class="console-card impact-narrative-card">
+      <div class="card-header-flex">
+        <div>
+          <span class="section-kicker">CORE PHILOSOPHY</span>
+          <h2 class="card-heading">The Trust & Authorization Layer for AI Agents</h2>
+        </div>
+        <span class="badge-impact-tag">SYSTEM ARCHITECTURE</span>
+      </div>
+      <div class="impact-narrative-grid">
+        <div class="narrative-col">
+          <h3 class="narrative-heading">The Emerging Problem</h3>
+          <p>AI agents are transitioning from conversational assistants to autonomous actors with authority to execute financial transactions, access supplier APIs, procure physical goods, and manage resources.</p>
+          <p>Unconstrained AI autonomy creates catastrophic real-world operational and financial risk.</p>
+        </div>
+        <div class="narrative-col">
+          <h3 class="narrative-heading">The Sentinel Solution</h3>
+          <p>Sentinel acts as the gatekeeper between autonomous AI intent and real-world execution. Organizations define fine-grained boundaries: who the agent is, what categories it can touch, how much it can spend, and when human oversight is mandatory.</p>
+          <div class="core-quote-box">
+            "AI CAN DECIDE WHAT IT WANTS TO DO.<br><strong>SENTINEL DECIDES WHAT IT IS TRUSTED TO DO.</strong>"
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- API Reference Footer -->
+    <footer class="console-card footer-card" id="api-reference">
+      <div class="footer-title">Sentinel v4.1 API Reference & Integration Contract</div>
+      <div class="api-endpoints-grid">
+        <div class="api-endpoint">
+          <span class="method get">GET</span>
+          <code>/api/agents</code>
+          <span class="endpoint-desc">Multi-agent registry & capability scopes</span>
+        </div>
+        <div class="api-endpoint">
+          <span class="method get">GET</span>
+          <code>/api/activity</code>
+          <span class="endpoint-desc">Real-time global agent activity stream</span>
+        </div>
+        <div class="api-endpoint">
+          <span class="method post">POST</span>
+          <code>/api/ai/recommend</code>
+          <span class="endpoint-desc">Gemini AI autonomous product recommendation</span>
+        </div>
+        <div class="api-endpoint">
+          <span class="method post">POST</span>
+          <code>/api/policy/simulate</code>
+          <span class="endpoint-desc">Deterministic policy explainability & check breakdown</span>
+        </div>
+        <div class="api-endpoint">
+          <span class="method post">POST</span>
+          <code>/api/agent/checkout</code>
+          <span class="endpoint-desc">Universal policy gate + Razorpay TEST order</span>
+        </div>
+        <div class="api-endpoint">
+          <span class="method post">POST</span>
+          <code>/api/demo/run</code>
+          <span class="endpoint-desc">Real controlled demo scenario executor</span>
+        </div>
+        <div class="api-endpoint">
+          <span class="method get">GET</span>
+          <code>/api/approvals</code>
+          <span class="endpoint-desc">Pending & resolved supervisor approvals</span>
+        </div>
+        <div class="api-endpoint">
+          <span class="method post">POST</span>
+          <code>/api/approvals/:id/approve</code>
+          <span class="endpoint-desc">Human authorization + Razorpay order creation</span>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

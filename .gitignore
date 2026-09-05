@@ -1,0 +1,10 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.DS_Store
+dist/
+*.md.bak
+prompt*.md
+working-prompt*.md
+metadata*.json
