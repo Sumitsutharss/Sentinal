@@ -3,7 +3,6 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import crypto from 'crypto';
 import Razorpay from 'razorpay';
-import { GoogleGenAI } from '@google/genai';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -628,20 +627,10 @@ Respond with ONLY structured JSON. Do not include markdown or explanations outsi
   "confidence": number (between 0.0 and 1.0)
 }`;
 
-      let rawContent = '';
-      try {
-        const ai = new GoogleGenAI({ apiKey });
-        const response = await ai.models.generateContent({
-          model: modelName,
-          contents: prompt,
-        });
-        rawContent = response.text || '';
-      } catch (err1) {
-        const genAI = new GoogleGenerativeAI(apiKey);
-        const model = genAI.getGenerativeModel({ model: modelName });
-        const result = await model.generateContent(prompt);
-        rawContent = result.response.text() || '';
-      }
+      const genAI = new GoogleGenerativeAI(apiKey);
+      const model = genAI.getGenerativeModel({ model: modelName });
+      const result = await model.generateContent(prompt);
+      const rawContent = result.response.text() || '';
 
       const cleanJson = rawContent.replace(/```json/g, '').replace(/```/g, '').trim();
       const parsed = JSON.parse(cleanJson);

@@ -1,5 +1,4 @@
 import dotenv from 'dotenv';
-import { GoogleGenAI } from '@google/genai';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 dotenv.config();
@@ -39,20 +38,10 @@ You MUST return ONLY valid JSON in this exact structure:
   "confidence": 0.95
 }`;
 
-      let rawContent = '';
-      try {
-        const ai = new GoogleGenAI({ apiKey });
-        const response = await ai.models.generateContent({
-          model: modelName,
-          contents: prompt,
-        });
-        rawContent = response.text || '';
-      } catch (err1) {
-        const genAI = new GoogleGenerativeAI(apiKey);
-        const model = genAI.getGenerativeModel({ model: modelName });
-        const result = await model.generateContent(prompt);
-        rawContent = result.response.text() || '';
-      }
+      const genAI = new GoogleGenerativeAI(apiKey);
+      const model = genAI.getGenerativeModel({ model: modelName });
+      const result = await model.generateContent(prompt);
+      const rawContent = result.response.text() || '';
 
       const cleanJson = rawContent.replace(/```json/g, '').replace(/```/g, '').trim();
       const parsed = JSON.parse(cleanJson);
